@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "lib": ["esnext"],
+        "target": "esnext",
+        "module": "commonjs",
+        
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+
+        "rootDir": "src",
+        "outDir": "dist",
+        "allowJs": true,
+        "removeComments": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+
+        "strict": true,
+        "noImplicitThis": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true
+    },
+    "include": ["src"]
+}
