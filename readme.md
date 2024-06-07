@@ -82,7 +82,7 @@ Calls bufint method for every property during serialize / deserialize.
 
 ### Enum
 ```ts
-BufInt.Enum(values: Iterable<{ value: T, enumValue?: number }>, valueType: NUMTYPE)
+BufInt.Enum(values: Iterable<{ value: unknown, enumValue?: number }>, valueType: NUMTYPE)
 ```
 
 Used to create enum interface. Auto-converts enumerables, like {`ONE`, `TWO`, `THREE`} to numbers {`0`, `1`, `2`}.
@@ -104,7 +104,7 @@ Adds one extra byte to store value existence. `0` if `undefined`, `1` if exists.
 
 ### BitFlags
 ```ts
-BufInt.BitFlags(flags: ArrayLike<KEY | false>)
+BufInt.BitFlags(flags: ArrayLike<string | false>)
 ```
 
 Used to create interface of an object of booleans. Uses one bit to store a boolean rather than a byte.
@@ -117,7 +117,7 @@ If an object is `{a: false, b: true, c: true}`, then the byte will be `0b0101000
 ```ts
 BufInt.BitField(
     fields: ArrayLike<{
-        key: KEY | false,
+        key: string | false,
         bits: number
     }>, 
     bytes?: number
@@ -144,17 +144,17 @@ If an object is `{a: 2, b: 11, c: 5, d: 1}`, then the byte will be `10101110` `1
 ### Switch
 ```ts
 BufInt.Switch(
-    switchExpr: (value: T) => Cases
-	cases: Iterable<{
-        case: C;
-        bufint: BufInt<T>;
+    switchExpr: (value: unknown) => Cases
+    cases: Iterable<{
+        case: unknown;
+        bufint: BufInt;
         enumValue?: number;
     }>,
-	defaultCase: {
-        readonly bufint: BufInt<T>;
-		readonly enumValue?: number;
+    defaultCase: {
+        bufint: BufInt;
+        enumValue?: number;
     } | null | undefined,
-	enumType: NUMTYPE
+    enumType: NUMTYPE
 )
 ```
 
@@ -172,15 +172,15 @@ Defaults increments from minimum value. `enumType` specifies the number type to 
 Consider following example:
 ```ts
 BufInt.Switch(
-	v => typeof v,
-	[
-		{ case: 'string', bufint: BufInt.String.utf8_32be },
-		{ case: 'number', bufint: BufInt.Number.float64le },
-		{ case: 'boolean', bufint: BufInt.Boolean },
-		{ case: 'bigint', bufint: BufInt.Bigint.biguint64le },
-	],
-	null,
-	'uint8'
+    v => typeof v,
+    [
+        { case: 'string', bufint: BufInt.String.utf8_32be },
+        { case: 'number', bufint: BufInt.Number.float64le },
+        { case: 'boolean', bufint: BufInt.Boolean },
+        { case: 'bigint', bufint: BufInt.Bigint.biguint64le },
+    ],
+    null,
+    'uint8'
 )
 ```
 
