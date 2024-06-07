@@ -1,4 +1,4 @@
-A NodeJS library to deal with binary data, serialize to / deserialize from JS values, e.g. String, Number, BigInt, Boolean, Object, Array, etc.
+A NodeJS library to deal with binary data, serialize from / deserialize to JS values, e.g. String, Number, BigInt, Boolean, Object, Array, etc.
 
 ## Usage
 ```ts
