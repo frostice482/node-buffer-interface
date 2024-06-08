@@ -51,7 +51,7 @@ function bitfieldBufInt<T extends string>(fields: ArrayLike<bitfieldBufInt.Field
 
         deserialize: Function('read',
             'return function(buf, offset) {'
-                + `const byte = read(buf, 0, ${bytes});`
+                + `const byte = read(buf, offset, ${bytes});`
                 + `return { value: {${deserializeStr}}, offset: offset + ${bytes} }`
             + '}'
         )(ruintbecall)
