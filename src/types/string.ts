@@ -43,6 +43,7 @@ namespace stringBufInt {
 	export const utf8_16be = stringBufInt("uint16be", "utf8");
 	export const utf8_32be = stringBufInt("uint32be", "utf8");
 	export const binary_8 = stringBufInt("uint8", "binary");
+	export const binary_16be = stringBufInt("uint16be", "binary");
 }
 
 export default stringBufInt
