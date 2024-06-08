@@ -6,7 +6,7 @@ A NodeJS library to deal with binary data, serialize from / deserialize to JS va
 import BufInt from "node-buffer-interface";
 
 // CJS
-const {default: BufInt} = require("node-buffer-interface");
+const BufInt = require("node-buffer-interface");
 ```
 
 ## Methods

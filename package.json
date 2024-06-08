@@ -27,7 +27,13 @@
   "files": [
     "dist"
   ],
+  "type": "commonjs",
   "main": "dist/index.js",
+  "module": "dist/imports/esm.mjs",
+  "exports": {
+    "import": "./dist/imports/esm.mjs",
+    "require": "./dist/imports/cjs.cjs"
+  },
   "types": "dist/index.d.ts",
   "engines": {
     "node": ">=10"

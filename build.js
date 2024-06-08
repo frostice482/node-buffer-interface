@@ -14,6 +14,11 @@ const fsp = require('fs/promises')
         platform: 'node',
         //bundle: true,
         //minify: true,
+
+        loader: {
+            '.mjs': 'copy',
+            '.cjs': 'copy'
+        },
     
         tsconfig: 'tsconfig.json',
         packages: 'external'
