@@ -1,2 +1,2 @@
-const {default: BufInt} = require('../index.js')
-module.exports = BufInt
+const BufInt = require('../index.js')
+module.exports = BufInt.default ?? BufInt
